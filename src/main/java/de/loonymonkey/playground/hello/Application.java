@@ -1,4 +1,4 @@
-package hello;
+package de.loonymonkey.playground.hello;
 
 import java.util.Arrays;
 
