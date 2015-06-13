@@ -7,37 +7,43 @@ buildscript {
     }
 }
 
-apply plugin: 'java'
-apply plugin: 'eclipse'
-apply plugin: 'spring-boot'
+allprojects {
+    apply plugin: 'java'
+    apply plugin: 'eclipse'
+    apply plugin: 'spring-boot'
 
-jar {
-    baseName = 'spring-boot-angular-playground'
     version =  '0.1.0-SNAPSHOT'
-}
+    group = "de.loonymonkey"
 
-repositories {
-    mavenCentral()
-}
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
-
-dependencies {
-    // tag::jetty[]
-    compile("org.springframework.boot:spring-boot-starter-web") {
-        exclude module: "spring-boot-starter-tomcat"
+    repositories {
+        mavenCentral()
     }
-    compile("org.springframework.boot:spring-boot-starter-jetty")
-    // end::jetty[]
-    // tag::actuator[]
-    compile("org.springframework.boot:spring-boot-starter-actuator")
-    // end::actuator[]
-    // tag::tests[]
-    testCompile("org.springframework.boot:spring-boot-starter-test")
-    // end::tests[]
+
+    task wrapper(type: Wrapper) {
+        gradleVersion = '2.4'
+    }
 }
 
-task wrapper(type: Wrapper) {
-    gradleVersion = '2.4'
+project(":frontend") {
+    dependencies {
+        // tag::jetty[]
+        compile("org.springframework.boot:spring-boot-starter-web") {
+            exclude module: "spring-boot-starter-tomcat"
+        }
+        compile("org.springframework.boot:spring-boot-starter-jetty")
+        // end::jetty[]
+        // tag::actuator[]
+        compile("org.springframework.boot:spring-boot-starter-actuator")
+        // end::actuator[]
+        // tag::tests[]
+        testCompile("org.springframework.boot:spring-boot-starter-test")
+        // end::tests[]
+    }
+
+    jar {
+        baseName = 'spring-boot-angular-playground'
+    }
 }
