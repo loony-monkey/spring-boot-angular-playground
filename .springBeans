@@ -7,7 +7,7 @@
 	</configSuffixes>
 	<enableImports><![CDATA[false]]></enableImports>
 	<configs>
-		<config>java:de.loonymonkey.playground.hello.Application</config>
+		<config>java:de.loonymonkey.playground.hello.PlaygroundApplication</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>

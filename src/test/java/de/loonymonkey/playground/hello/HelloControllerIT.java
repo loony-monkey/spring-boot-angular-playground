@@ -17,29 +17,25 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.web.client.RestTemplate;
 
-import de.loonymonkey.playground.hello.Application;
-
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = Application.class)
+@SpringApplicationConfiguration(classes = PlaygroundApplication.class)
 @WebAppConfiguration
-@IntegrationTest({ "server.port=0" })
+@IntegrationTest({"server.port=0"})
 public class HelloControllerIT {
-
     @Value("${local.server.port}")
-    private int port;
-
-    private URL base;
+    private int          port;
+    private URL          base;
     private RestTemplate template;
 
     @Before
     public void setUp() throws Exception {
-        this.base = new URL( "http://localhost:" + port + "/" );
-        template = new TestRestTemplate();
+        this.base = new URL("http://localhost:" + this.port + "/hello");
+        this.template = new TestRestTemplate();
     }
 
     @Test
     public void getHello() throws Exception {
-        ResponseEntity< String > response = template.getForEntity( base.toString(), String.class );
-        assertThat( response.getBody(), equalTo( "Greetings from Spring Boot!" ) );
+        final ResponseEntity<String> response = this.template.getForEntity(this.base.toString(), String.class);
+        assertThat(response.getBody(), equalTo("Greetings from Loony Monkey's 'Spring Boot AngularJS Playground'!"));
     }
 }

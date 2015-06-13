@@ -1,0 +1,20 @@
+<div
+    class="container"
+    ng-controller="MessagesController">
+
+    <div class="row col-md-12">
+        <table class="table table-hover table-striped table-condensed">
+            <thead>
+                <th>ID</th>
+                <th>Name</th>
+                <th></th>
+            </thead>
+            <tbody>
+                <tr ng-repeat="message in messages | filter:query">
+                    <td>{{message.id}}</td>
+                    <td>{{message.name}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
