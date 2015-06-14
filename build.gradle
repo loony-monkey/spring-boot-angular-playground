@@ -15,8 +15,26 @@ allprojects {
 
     repositories { mavenCentral() }
 
-    task wrapper(type: Wrapper) {
-        gradleVersion = '2.4'
+    dependencies {
+        compile "commons-lang:commons-lang:2.6"
+        compile "com.google.guava:guava:18.0"
+        testCompile "junit:junit:4.12"
+    }
+}
+
+project(":domain-model") {
+    jar { baseName = 'domain-model' }
+
+    dependencies {
+        compile "org.springframework:spring-context:4.1.6.RELEASE"
+    }
+}
+
+project(":persistence") {
+    jar { baseName = 'persistence' }
+
+    dependencies {
+        compile project(":domain-model")
     }
 }
 
@@ -39,18 +57,7 @@ project(":frontend") {
         testCompile("org.springframework.boot:spring-boot-starter-test:1.2.4.RELEASE")
         // end::tests[]
 
-        compile "com.google.guava:guava:18.0"
-
         compile project(":domain-model")
-    }
-}
-
-project(":domain-model") {
-    jar { baseName = 'domain-model' }
-
-    dependencies {
-        compile "commons-lang:commons-lang:2.6"
-        compile "org.springframework:spring-context:4.1.6.RELEASE"
-        testCompile "junit:junit:4.12"
+        compile project(":persistence")
     }
 }
