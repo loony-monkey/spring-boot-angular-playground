@@ -1,10 +1,6 @@
 buildscript {
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.2.3.RELEASE")
-    }
+    repositories { mavenCentral() }
+    dependencies { classpath("org.springframework.boot:spring-boot-gradle-plugin:1.2.3.RELEASE") }
 }
 
 allprojects {
@@ -12,14 +8,12 @@ allprojects {
     apply plugin: 'eclipse'
 
     version =  '0.1.0-SNAPSHOT'
-    group = "de.loonymonkey"
+    group = "de.loonymonkey.playground"
 
     sourceCompatibility = 1.8
     targetCompatibility = 1.8
 
-    repositories {
-        mavenCentral()
-    }
+    repositories { mavenCentral() }
 
     task wrapper(type: Wrapper) {
         gradleVersion = '2.4'
@@ -27,24 +21,32 @@ allprojects {
 }
 
 project(":frontend") {
+    jar { baseName = 'frontend' }
+
     apply plugin: 'spring-boot'
 
     dependencies {
         // tag::jetty[]
-        compile("org.springframework.boot:spring-boot-starter-web") {
+        compile("org.springframework.boot:spring-boot-starter-web:1.2.4.RELEASE") {
             exclude module: "spring-boot-starter-tomcat"
         }
-        compile("org.springframework.boot:spring-boot-starter-jetty")
+        compile("org.springframework.boot:spring-boot-starter-jetty:1.2.4.RELEASE")
         // end::jetty[]
         // tag::actuator[]
-        compile("org.springframework.boot:spring-boot-starter-actuator")
+        compile("org.springframework.boot:spring-boot-starter-actuator:1.2.4.RELEASE")
         // end::actuator[]
         // tag::tests[]
-        testCompile("org.springframework.boot:spring-boot-starter-test")
+        testCompile("org.springframework.boot:spring-boot-starter-test:1.2.4.RELEASE")
         // end::tests[]
-    }
 
-    jar {
-        baseName = 'spring-boot-angular-playground'
+        compile project(":domain-model")
+    }
+}
+
+project(":domain-model") {
+    jar { baseName = 'domain-model' }
+    dependencies {
+        compile "commons-lang:commons-lang:2.6"
+        testCompile "junit:junit:4.12"
     }
 }
