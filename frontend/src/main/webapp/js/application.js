@@ -4,7 +4,7 @@ springFun.config(['$routeProvider', function($routeProvider) {
     $routeProvider.
         when("/list", {
             templateUrl: 'templates/list.html',
-            controller: 'MessagesController'
+            controller: 'WeightHistoryController'
         }).
         when('/about', {
             templateUrl: 'templates/about.html'

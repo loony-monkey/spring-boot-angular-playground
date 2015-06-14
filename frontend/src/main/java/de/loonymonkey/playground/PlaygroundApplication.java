@@ -1,4 +1,4 @@
-package de.loonymonkey.playground.hello;
+package de.loonymonkey.playground;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

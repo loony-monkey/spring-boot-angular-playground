@@ -1,18 +1,19 @@
-var springFunControllers = angular.module('springAngularController', []);
+var springAngularControllers = angular.module('springAngularController', []);
 
-springFunControllers.controller('MessagesController', function($scope, $http) {
-    $scope.messages = [];
+springAngularControllers.controller('WeightHistoryController', function($scope,
+        $http) {
+    $scope.entries = [];
 
-    // $http.get('/message/all').success(function (data, status, headers,
-    // config) {
-    // $scope.messages = data;
-    // }).error(function (data, status, headers, config) {
-    // $scope.errorMessage = "Can't retrieve messages list!";
-    // });
-    single_message = {
-        "id" : "123",
-        "name" : "Test"
-    }
-    $scope.messages.push(single_message)
+    $http.get('/weight/history').success(
+            function(data, status, headers, config) {
+                $scope.entries = data;
+            }).error(function(data, status, headers, config) {
+        $scope.errorMessage = "Can't retrieve weight history! (" + status + ")";
+    });
+    // single_entryy = {
+    // "id" : "123",
+    // "name" : "Test"
+    // }
+    // $scope.entries.push(single_message)
 
 });

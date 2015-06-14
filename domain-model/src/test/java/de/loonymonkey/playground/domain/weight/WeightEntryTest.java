@@ -1,15 +1,17 @@
 package de.loonymonkey.playground.domain.weight;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import org.junit.Test;
+
+import de.loonymonkey.playground.weight.domain.WeightEntry;
 
 /**
  * @author Frank
  */
 public class WeightEntryTest {
-    private static final LocalDateTime VALID_DATE_TIME = LocalDateTime.now();
-    private static final float         VALID_WEIGHT    = 100;
+    private static final LocalDate VALID_DATE   = LocalDate.now();
+    private static final float     VALID_WEIGHT = 100;
 
     @Test(expected = IllegalArgumentException.class)
     public void assertThatConstructorRejectsNullDateTime() {
@@ -20,12 +22,12 @@ public class WeightEntryTest {
     @Test(expected = IllegalArgumentException.class)
     public void assertThatConstructorRejectsZeroWeight() {
         @SuppressWarnings("unused")
-        final WeightEntry objectUnderTest = new WeightEntry(VALID_DATE_TIME, 0);
+        final WeightEntry objectUnderTest = new WeightEntry(VALID_DATE, 0);
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void assertThatConstructorRejectsNegativeWeight() {
         @SuppressWarnings("unused")
-        final WeightEntry objectUnderTest = new WeightEntry(VALID_DATE_TIME, -10);
+        final WeightEntry objectUnderTest = new WeightEntry(VALID_DATE, -10);
     }
 }
