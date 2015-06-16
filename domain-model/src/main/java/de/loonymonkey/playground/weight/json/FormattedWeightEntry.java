@@ -14,7 +14,7 @@ import de.loonymonkey.playground.weight.domain.WeightEntry;
  * formatting stuff. <br/>
  * But for now, since I am much more comfortable with Java than with JS code, we do that stuff here. Not my most important problem, at the moment :).
  * </p>
- * 
+ *
  * @author Frank
  */
 public class FormattedWeightEntry {

@@ -35,6 +35,9 @@ project(":persistence") {
 
     dependencies {
         compile project(":domain-model")
+
+        compile("org.springframework.boot:spring-boot-starter-jdbc:1.2.4.RELEASE")
+        compile 'org.xerial:sqlite-jdbc:3.8.10.1'
     }
 }
 
