@@ -60,6 +60,8 @@ project(":frontend") {
         testCompile("org.springframework.boot:spring-boot-starter-test:1.2.4.RELEASE")
         // end::tests[]
 
+        compile 'com.opencsv:opencsv:3.4'
+
         compile project(":domain-model")
         compile project(":persistence")
     }

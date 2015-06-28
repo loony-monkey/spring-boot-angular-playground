@@ -38,14 +38,22 @@
         </div>
     </nav>
 
-    <div ng-view></div>
-
     <h4>Test Graph</h4>
     <div id="graphdiv"
-        style="width:480px; height:320px; border:1px solid black"></div>
+        style="width:960px; height:320px; border:1px solid black"></div>
     <script type="text/javascript">
-      g = new Dygraph(document.getElementById("graphdiv"), "test-data/raw.csv");
+      g = new Dygraph(document.getElementById("graphdiv"), "weight/data", {
+          drawPoints: true,
+          pointSize: 2,
+          color: 'rgb(0,0,255)',
+          showRangeSelector: true,
+          rangeSelectorHeight: 30,
+          rangeSelectorPlotStrokeColor: 'green',
+          rangeSelectorPlotFillColor: 'lightyellow',
+      });
     </script>
+
+    <div ng-view></div>
 
 </body>
 
