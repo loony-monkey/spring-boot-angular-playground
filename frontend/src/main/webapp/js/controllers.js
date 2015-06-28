@@ -10,10 +10,4 @@ springAngularControllers.controller('WeightHistoryController', function($scope,
             }).error(function(data, status, headers, config) {
         $scope.errorMessage = "Can't retrieve weight history! (" + status + ")";
     });
-    // single_entryy = {
-    // "id" : "123",
-    // "name" : "Test"
-    // }
-    // $scope.entries.push(single_message)
-
 });
