@@ -22,6 +22,6 @@ public class SQLiteBasedWeightHistoryRepository implements WeightHistoryReposito
 
     @Override
     public List<WeightEntry> getAllEntries() {
-        return this.jdbcTemplate.query("select date, weight from weight order by date", new WeightRowExtractor());
+        return this.jdbcTemplate.query("select date, weight from weight order by date desc", new WeightRowExtractor());
     }
 }
