@@ -10,7 +10,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.4/angular.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.4/angular-route.js"></script>
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dygraph/1.1.1/dygraph-combined.js"></script>
+<script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/dygraph/1.1.1/dygraph-combined.js"></script>
 
 <script src="js/application.js"></script>
 <script src="js/controllers.js"></script>
@@ -31,27 +33,13 @@
         <div class="container-fluid">
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="#/list">Item List</a></li>
+                    <li><a href="#/list">History</a></li>
+                    <li><a href="#/graph">Graph</a></li>
                     <li><a href="#/about">About</a></li>
                 </ul>
             </div>
         </div>
     </nav>
-
-    <h4>Test Graph</h4>
-    <div id="graphdiv"
-        style="width:960px; height:320px; border:1px solid black"></div>
-    <script type="text/javascript">
-      g = new Dygraph(document.getElementById("graphdiv"), "weight/data", {
-          drawPoints: true,
-          pointSize: 2,
-          color: 'rgb(0,0,255)',
-          showRangeSelector: true,
-          rangeSelectorHeight: 30,
-          rangeSelectorPlotStrokeColor: 'green',
-          rangeSelectorPlotFillColor: 'lightyellow',
-      });
-    </script>
 
     <div ng-view></div>
 

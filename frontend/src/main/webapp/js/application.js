@@ -6,6 +6,10 @@ springFun.config(['$routeProvider', function($routeProvider) {
             templateUrl: 'templates/list.html',
             controller: 'WeightHistoryController'
         }).
+        when('/graph', {
+            templateUrl: 'templates/graph.html',
+            controller: 'WeightGraphController'
+        }).
         when('/about', {
             templateUrl: 'templates/about.html'
         }).
