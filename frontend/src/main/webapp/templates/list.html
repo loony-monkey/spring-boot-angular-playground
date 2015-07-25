@@ -9,6 +9,9 @@
             <div class="alert alert-danger">{{errorMessage}}</div>
         </div>
 
+        <div ui-grid="{ data: entries }" class="weightGrid"></div>
+
+<!--
         <table class="table table-hover table-striped table-condensed">
             <thead>
                 <th>Date</th>
@@ -18,9 +21,10 @@
             <tbody>
                 <tr ng-repeat="entry in entries">
                     <td>{{entry.date}}</td>
-                    <td>{{entry.weight}}</td>
+                    <td>{{entry.weight | number:1}}</td>
                 </tr>
             </tbody>
         </table>
+-->
     </div>
 </div>

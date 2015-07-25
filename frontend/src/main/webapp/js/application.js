@@ -1,4 +1,4 @@
-var springFun = angular.module('springAngularApplication', ['ngRoute', 'springAngularController']);
+var springFun = angular.module('springAngularApplication', ['ngRoute', 'springAngularController', 'ui.grid']);
 
 springFun.config(['$routeProvider', function($routeProvider) {
     $routeProvider.
