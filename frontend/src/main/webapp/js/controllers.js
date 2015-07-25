@@ -1,12 +1,18 @@
-var springAngularControllers = angular.module('springAngularController', []);
+var springAngularControllers = angular.module('springAngularControllers', []);
 
-springAngularControllers.controller('WeightHistoryController', function($scope,
-        $http) {
-    $scope.entries = [];
+springAngularControllers.controller('WeightHistoryController', function($scope, $http) {
+
+    $scope.weightTable = {
+        enableSorting: true,
+        columnDefs: [
+             {name: 'Date', field: 'date', enableColumnMenu: false },
+             {name: 'Weight', field: 'weight', enableColumnMenu: false, cellFilter: 'number:1'}
+          ]
+    };
 
     $http.get('/weight/history').success(
             function(data, status, headers, config) {
-                $scope.entries = data;
+                $scope.weightTable.data = data;
             }).error(
             function(data, status, headers, config) {
                 $scope.errorMessage = "Can't retrieve weight history! ("

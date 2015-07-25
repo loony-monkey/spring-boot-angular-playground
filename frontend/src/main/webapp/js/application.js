@@ -1,6 +1,6 @@
-var springFun = angular.module('springAngularApplication', ['ngRoute', 'springAngularController', 'ui.grid']);
+var application = angular.module('springAngularApplication', ['ngRoute', 'springAngularControllers', 'ui.grid']);
 
-springFun.config(['$routeProvider', function($routeProvider) {
+application.config(['$routeProvider', function($routeProvider) {
     $routeProvider.
         when("/list", {
             templateUrl: 'templates/list.html',
